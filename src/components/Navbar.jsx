@@ -1,4 +1,4 @@
-import { Menu, PanelLeft, Send } from 'lucide-react'
+import { Menu, Send } from 'lucide-react'
 import { demoRoutes } from '../data/siteContent'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -23,10 +23,8 @@ export function Navbar({ onNavigate }) {
     <header className="main-header">
       <nav className="section-container header-nav">
         <a href="/" className="brand" onClick={go('/')}>
-          <span className="brand-mark">
-            <PanelLeft size={20} />
-          </span>
-          WebFlex Studio
+          <span className="brand-mark" aria-hidden="true">NT</span>
+          Nispero Tech
         </a>
 
         <div className="main-links">

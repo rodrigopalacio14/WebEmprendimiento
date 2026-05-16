@@ -5,7 +5,7 @@ const LanguageContext = createContext(null)
 const codes = languages.map(language => language.code)
 
 function getInitialLanguage() {
-  const saved = window.localStorage.getItem('webflex-language')
+  const saved = window.localStorage.getItem('nispero-language') || window.localStorage.getItem('webflex-language')
   if (codes.includes(saved)) return saved
 
   const browserCode = window.navigator.language?.slice(0, 2)
@@ -18,7 +18,7 @@ export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(getInitialLanguage)
 
   useEffect(() => {
-    window.localStorage.setItem('webflex-language', language)
+    window.localStorage.setItem('nispero-language', language)
     document.documentElement.lang = language
     document.title = translations[language].meta.title
   }, [language])

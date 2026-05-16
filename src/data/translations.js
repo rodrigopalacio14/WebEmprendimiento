@@ -198,7 +198,7 @@ const sharedPlans = {
 
 export const translations = {
   es: {
-    meta: { title: 'WebFlex Studio | Servicios digitales para pequeños negocios' },
+    meta: { title: 'Nispero Tech | Soluciones digitales para pequeños negocios' },
     nav: {
       home: 'Inicio',
       services: 'Servicios',
@@ -347,7 +347,7 @@ export const translations = {
 }
 
 translations.en = {
-  meta: { title: 'WebFlex Studio | Digital services for small businesses' },
+  meta: { title: 'Nispero Tech | Digital solutions for small businesses' },
   nav: { home: 'Home', services: 'Services', demos: 'Demos', plans: 'Plans', process: 'How we work', contact: 'Contact', proposal: 'Request proposal', backHome: 'Back home' },
   hero: {
     eyebrow: 'Digital studio for small businesses',
@@ -405,7 +405,7 @@ translations.en = {
 
 translations.da = {
   ...translations.en,
-  meta: { title: 'WebFlex Studio | Digitale services til små virksomheder' },
+  meta: { title: 'Nispero Tech | Digitale løsninger til små virksomheder' },
   nav: { home: 'Forside', services: 'Services', demos: 'Demoer', plans: 'Pakker', process: 'Sådan arbejder vi', contact: 'Kontakt', proposal: 'Anmod om tilbud', backHome: 'Til forsiden' },
   hero: {
     eyebrow: 'Digitalt studie for små virksomheder',
@@ -437,7 +437,7 @@ translations.da = {
 
 translations.it = {
   ...translations.en,
-  meta: { title: 'WebFlex Studio | Servizi digitali per piccole attività' },
+  meta: { title: 'Nispero Tech | Soluzioni digitali per piccole attività' },
   nav: { home: 'Home', services: 'Servizi', demos: 'Demo', plans: 'Piani', process: 'Come lavoriamo', contact: 'Contatto', proposal: 'Richiedi proposta', backHome: 'Torna alla home' },
   hero: { eyebrow: 'Studio digitale per piccole attività', title: 'Creiamo siti web che aiutano la tua attività a vendere, rispondere alle richieste e gestire prenotazioni', subtitle: 'Progettiamo siti web professionali per negozi, agenzie immobiliari, centri estetici e servizi. Integriamo WhatsApp, chatbot automatici e sistemi semplici per prenotazioni, ordini o richieste.', primaryButton: 'Vedi piani', secondaryButton: 'Vedi demo', mockupTitle: 'Sito + WhatsApp + gestione', mockupMessage: 'Ciao, vorrei verificare la disponibilità', mockupBot: 'Scegli un’opzione: prezzi, prenotazioni o parlare con una persona.', mockupPanel: 'Pannello: 12 nuove richieste' },
   problem: { eyebrow: 'Problema', title: 'La tua attività può perdere clienti se non risponde in tempo', text: 'Molte attività gestiscono ancora richieste, prenotazioni e ordini manualmente. Questo crea ritardi, messaggi ripetuti e opportunità perse.', close: 'Trasformiamo questi processi in un’esperienza digitale semplice, chiara e professionale.', items: ['Richieste ripetute su WhatsApp', 'Prenotazioni o ordini disordinati', 'Mancanza di presenza online professionale', 'Clienti che abbandonano per mancanza di risposta'] },

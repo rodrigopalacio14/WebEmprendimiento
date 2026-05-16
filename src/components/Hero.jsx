@@ -17,7 +17,7 @@ export function Hero({ onNavigate }) {
     <BackgroundSection
       id="inicio"
       backgroundImage={backgrounds.main}
-      overlay="linear-gradient(115deg, rgba(15,23,42,0.84), rgba(23,37,84,0.68) 44%, rgba(15,118,110,0.34))"
+      overlay="linear-gradient(115deg, rgba(6,18,45,0.88), rgba(6,18,45,0.72) 44%, rgba(18,215,220,0.24))"
       height="100vh"
       className="hero-section"
     >
