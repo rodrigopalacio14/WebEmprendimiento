@@ -1,4 +1,6 @@
 import { ArrowLeft, Bot, Check, LayoutDashboard, MessageCircle, Send } from 'lucide-react'
+import { backgrounds } from '../data/backgrounds'
+import { BackgroundSection } from '../components/BackgroundSection'
 import { Footer } from '../components/Footer'
 import { PlanComparison } from '../components/PlanComparison'
 import { useLanguage } from '../context/LanguageContext'
@@ -16,7 +18,7 @@ export function DemoPage({ route, onNavigate }) {
   return (
     <>
       <section className="demo-page" style={{ '--demo-color': route.color, '--demo-accent': route.accent }}>
-        <div className="section-container">
+        <div className="section-container demo-nav-wrap">
           <nav className="demo-nav">
             <a href="/" onClick={go('/')} className="demo-brand">
               <ArrowLeft size={18} />
@@ -31,7 +33,15 @@ export function DemoPage({ route, onNavigate }) {
               </a>
             </div>
           </nav>
+        </div>
 
+        <BackgroundSection
+          backgroundImage={backgrounds[route.key]}
+          overlay="linear-gradient(115deg, rgba(255,255,255,0.84), rgba(239,246,255,0.68) 42%, rgba(15,23,42,0.55))"
+          height="92vh"
+          className="demo-hero-background"
+        >
+          <div className="section-container">
           <div className="demo-hero">
             <div>
               <p className="eyebrow">{details.title}</p>
@@ -50,7 +60,10 @@ export function DemoPage({ route, onNavigate }) {
               </div>
             </div>
           </div>
+          </div>
+        </BackgroundSection>
 
+        <div className="section-container">
           <div className="demo-problem">
             <p className="eyebrow">{t.demoPage.problemLabel}</p>
             <h2>{details.problem}</h2>

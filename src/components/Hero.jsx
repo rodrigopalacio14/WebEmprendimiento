@@ -1,5 +1,7 @@
 import { Bot, CalendarCheck, ChevronRight, MessageCircle, MonitorSmartphone } from 'lucide-react'
+import { backgrounds } from '../data/backgrounds'
 import { useLanguage } from '../context/LanguageContext'
+import { BackgroundSection } from './BackgroundSection'
 
 export function Hero({ onNavigate }) {
   const { t } = useLanguage()
@@ -10,7 +12,13 @@ export function Hero({ onNavigate }) {
   }
 
   return (
-    <section id="inicio" className="hero-section">
+    <BackgroundSection
+      id="inicio"
+      backgroundImage={backgrounds.main}
+      overlay="linear-gradient(120deg, rgba(255,255,255,0.88), rgba(239,246,255,0.68) 48%, rgba(15,23,42,0.42))"
+      height="100vh"
+      className="hero-section"
+    >
       <div className="section-container hero-grid">
         <div className="hero-copy-block">
           <p className="eyebrow">{t.hero.eyebrow}</p>
@@ -59,6 +67,6 @@ export function Hero({ onNavigate }) {
           </div>
         </div>
       </div>
-    </section>
+    </BackgroundSection>
   )
 }

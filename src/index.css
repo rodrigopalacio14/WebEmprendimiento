@@ -60,6 +60,50 @@ img {
   margin: 0 auto;
 }
 
+.background-section {
+  position: relative;
+  display: flex;
+  align-items: var(--background-align, center);
+  overflow: hidden;
+}
+
+.bg-fixed-section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.background-video,
+.background-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-overlay {
+  z-index: 1;
+  background: var(--section-overlay);
+}
+
+.background-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+}
+
 .main-header {
   position: fixed;
   inset: 0 0 auto;
@@ -220,10 +264,6 @@ img {
 
 .hero-section {
   padding: 132px 0 82px;
-  background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.96), rgba(244, 248, 255, 0.76)),
-    radial-gradient(circle at 78% 18%, rgba(109, 40, 217, 0.14), transparent 30%),
-    radial-gradient(circle at 15% 28%, rgba(15, 118, 110, 0.12), transparent 34%);
 }
 
 .hero-grid {
@@ -299,10 +339,11 @@ img {
 
 .mockup-window {
   overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.48);
   border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.18);
 }
 
 .mockup-top {
@@ -581,6 +622,9 @@ img {
 
 .demo-card {
   overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(12px);
 }
 
 .demo-card img {
@@ -651,9 +695,9 @@ img {
   align-items: center;
   padding: 34px;
   color: #fff;
-  background:
-    linear-gradient(135deg, rgba(23, 37, 84, 0.95), rgba(15, 118, 110, 0.9)),
-    url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80") center/cover;
+  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(15, 23, 42, 0.34);
+  backdrop-filter: blur(14px);
 }
 
 .contact-panel h2,
@@ -706,9 +750,19 @@ img {
 
 .demo-page {
   min-height: 100vh;
-  padding: 112px 0 74px;
+  padding: 88px 0 74px;
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--demo-color) 9%, #fff), #fff 42%, color-mix(in srgb, var(--demo-accent) 7%, #f8fafc));
+}
+
+.demo-nav-wrap {
+  position: relative;
+  z-index: 30;
+}
+
+.demo-hero-background {
+  margin-top: -74px;
+  padding: 128px 0 72px;
 }
 
 .demo-nav {
@@ -753,7 +807,7 @@ img {
   grid-template-columns: 0.9fr 1.1fr;
   gap: 34px;
   align-items: center;
-  margin-top: 44px;
+  margin-top: 0;
 }
 
 .demo-hero h1 {
@@ -778,8 +832,9 @@ img {
 .demo-visual {
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 28px;
-  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.16);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.22);
 }
 
 .demo-visual img {
@@ -806,6 +861,9 @@ img {
 .demo-problem {
   margin-top: 34px;
   padding: 26px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
 .demo-problem h2 {
@@ -826,7 +884,8 @@ img {
   border: 1px solid color-mix(in srgb, var(--demo-color) 18%, #dbe4ef);
   border-radius: 18px;
   padding: 18px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
   font-weight: 900;
 }
 
@@ -845,6 +904,9 @@ img {
 
 .version-card {
   padding: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
 .version-card h3 {
@@ -1001,5 +1063,11 @@ img {
   .demo-contact-panel a,
   .demo-whatsapp {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bg-fixed-section {
+    background-attachment: scroll;
   }
 }
