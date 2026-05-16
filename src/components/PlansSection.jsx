@@ -21,7 +21,6 @@ export function PlansSection() {
               <span>{plan.name}</span>
               <h3>{plan.badge}</h3>
               <p>{plan.description}</p>
-              <strong>{plan.price}</strong>
               <ul>
                 {plan.includes.map(item => (
                   <li key={item}>

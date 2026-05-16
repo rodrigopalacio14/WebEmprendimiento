@@ -8,7 +8,7 @@ export const languages = [
 const sharedPlans = {
   es: [
     {
-      name: 'Plan Base',
+      name: 'Plan Básico',
       badge: 'Web Profesional',
       price: 'Desde 500 EUR',
       description: 'Para negocios que necesitan presencia online clara, moderna y confiable.',
@@ -23,10 +23,10 @@ const sharedPlans = {
       ]
     },
     {
-      name: 'Plan Intermedio',
+      name: 'Plan Completo',
       badge: 'Web + Chatbot',
       price: 'Desde 900 EUR',
-      description: 'Para negocios que reciben muchas consultas repetidas y quieren responder automáticamente.',
+      description: 'Incluye todo lo del Plan Básico y suma atención automática para responder consultas repetidas.',
       includes: [
         'Todo lo del Plan Base',
         'Chatbot con menú de opciones',
@@ -41,7 +41,7 @@ const sharedPlans = {
       name: 'Plan Premium',
       badge: 'Web + Gestión',
       price: 'Desde 1.800 EUR',
-      description: 'Para negocios que quieren organizar reservas, pedidos o consultas desde un panel simple.',
+      description: 'Incluye todo lo del Plan Completo y suma gestión de reservas, pedidos o consultas desde un panel simple.',
       includes: [
         'Todo lo del Plan Intermedio',
         'Panel de gestión',
@@ -70,10 +70,10 @@ const sharedPlans = {
       ]
     },
     {
-      name: 'Intermediate Plan',
+      name: 'Complete Plan',
       badge: 'Website + Chatbot',
       price: 'From 900 EUR',
-      description: 'For businesses that receive repeated inquiries and want to answer automatically.',
+      description: 'Includes everything in the Base Plan and adds automatic attention for repeated inquiries.',
       includes: [
         'Everything in the Base Plan',
         'Chatbot with option menu',
@@ -88,7 +88,7 @@ const sharedPlans = {
       name: 'Premium Plan',
       badge: 'Website + Management',
       price: 'From 1,800 EUR',
-      description: 'For businesses that want to organize bookings, orders or inquiries from a simple panel.',
+      description: 'Includes everything in the Complete Plan and adds booking, order or inquiry management from a simple panel.',
       includes: [
         'Everything in the Intermediate Plan',
         'Management panel',
@@ -117,10 +117,10 @@ const sharedPlans = {
       ]
     },
     {
-      name: 'Mellempakke',
+      name: 'Komplet pakke',
       badge: 'Hjemmeside + chatbot',
       price: 'Fra 900 EUR',
-      description: 'Til virksomheder, der får mange gentagne spørgsmål og vil svare automatisk.',
+      description: 'Indeholder alt fra Basepakken og tilføjer automatisk svar på gentagne henvendelser.',
       includes: [
         'Alt fra Basepakken',
         'Chatbot med valgmenu',
@@ -135,9 +135,9 @@ const sharedPlans = {
       name: 'Premiumpakke',
       badge: 'Hjemmeside + styring',
       price: 'Fra 1.800 EUR',
-      description: 'Til virksomheder, der vil organisere bookinger, ordrer eller henvendelser fra et enkelt panel.',
+      description: 'Indeholder alt fra den Komplette pakke og tilføjer styring af bookinger, ordrer eller henvendelser fra et enkelt panel.',
       includes: [
-        'Alt fra Mellempakken',
+        'Alt fra den Komplette pakke',
         'Administrationspanel',
         'Styring af bookinger, ordrer eller henvendelser',
         'Status på forespørgsler',
@@ -164,10 +164,10 @@ const sharedPlans = {
       ]
     },
     {
-      name: 'Piano Intermedio',
+      name: 'Piano Completo',
       badge: 'Sito + Chatbot',
       price: 'Da 900 EUR',
-      description: 'Per attività che ricevono molte richieste ripetute e vogliono rispondere automaticamente.',
+      description: 'Include tutto il Piano Base e aggiunge assistenza automatica per richieste ripetute.',
       includes: [
         'Tutto il Piano Base',
         'Chatbot con menu di opzioni',
@@ -182,9 +182,9 @@ const sharedPlans = {
       name: 'Piano Premium',
       badge: 'Sito + Gestione',
       price: 'Da 1.800 EUR',
-      description: 'Per attività che vogliono organizzare prenotazioni, ordini o richieste da un pannello semplice.',
+      description: 'Include tutto il Piano Completo e aggiunge gestione di prenotazioni, ordini o richieste da un pannello semplice.',
       includes: [
-        'Tutto il Piano Intermedio',
+        'Tutto il Piano Completo',
         'Pannello di gestione',
         'Gestione di prenotazioni, ordini o richieste',
         'Stati delle richieste',
@@ -248,8 +248,8 @@ export const translations = {
     plans: {
       eyebrow: 'Planes',
       title: 'Elegí el nivel de solución que necesita tu negocio',
-      note: 'El precio final depende del rubro, funcionalidades e integraciones necesarias.',
-      cta: 'Solicitar propuesta',
+      note: 'Los planes se arman por alcance: básico, completo y premium. Para definir el precio final, pedí una cotización según tu rubro, funcionalidades e integraciones necesarias.',
+      cta: 'Pedir una cotización',
       items: sharedPlans.es
     },
     demos: {
@@ -377,7 +377,7 @@ translations.en = {
       { title: 'Simple management', text: 'Panel for bookings, orders or inquiries with statuses, customer data and basic follow-up.' }
     ]
   },
-  plans: { eyebrow: 'Plans', title: 'Choose the solution level your business needs', note: 'Final pricing depends on the sector, features and integrations required.', cta: 'Request proposal', items: sharedPlans.en },
+  plans: { eyebrow: 'Plans', title: 'Choose the solution level your business needs', note: 'Plans are structured by scope: base, complete and premium. Request a quote to define the final price according to your sector, features and integrations.', cta: 'Request a quote', items: sharedPlans.en },
   demos: {
     eyebrow: 'Sector demos',
     title: 'Explore our demos by sector',
@@ -420,7 +420,7 @@ translations.da = {
   },
   problem: { eyebrow: 'Problem', title: 'Din virksomhed kan miste kunder ved ikke at svare i tide', text: 'Mange virksomheder håndterer stadig henvendelser, bookinger og ordrer manuelt. Det giver forsinkelser, gentagne beskeder og tabte muligheder.', close: 'Vi gør de processer til en enkel, klar og professionel digital oplevelse.', items: ['Gentagne WhatsApp-spørgsmål', 'Uorganiserede bookinger eller ordrer', 'Manglende professionel online tilstedeværelse', 'Kunder der falder fra på grund af langsomme svar'] },
   services: { eyebrow: 'Services', title: 'Praktiske løsninger til at sælge, svare og organisere', text: 'Vi bygger ikke dekorative hjemmesider. Vi bygger et enkelt værktøj til flere henvendelser, bedre beskeder og styring af ordrer eller bookinger uden spildtid.', items: [{ title: 'Professionel hjemmeside', text: 'Et klart, responsivt site til services, produkter og WhatsApp-kontakt.' }, { title: 'Automatisk chatbot', text: 'Valgmenu til ofte stillede spørgsmål, filtrering af henvendelser og videresendelse til en person.' }, { title: 'Enkel styring', text: 'Panel til bookinger, ordrer eller henvendelser med status, kundedata og basis opfølgning.' }] },
-  plans: { eyebrow: 'Pakker', title: 'Vælg det løsningsniveau din virksomhed har brug for', note: 'Den endelige pris afhænger af branche, funktioner og nødvendige integrationer.', cta: 'Anmod om tilbud', items: sharedPlans.da },
+  plans: { eyebrow: 'Pakker', title: 'Vælg det løsningsniveau din virksomhed har brug for', note: 'Pakkerne er opdelt efter omfang: base, komplet og premium. Anmod om et tilbud for at definere den endelige pris efter branche, funktioner og integrationer.', cta: 'Anmod om tilbud', items: sharedPlans.da },
   demos: { eyebrow: 'Demoer efter branche', title: 'Udforsk vores demoer efter branche', text: 'Hver demo viser, hvordan løsningen passer til konkrete problemer: ordrer, fremvisninger, bookinger eller henvendelser.', button: 'Se demo', cards: { comercio: { title: 'Butikker', text: 'Katalog, WhatsApp, chatbot og ordrestyring.' }, inmobiliaria: { title: 'Ejendomsmæglere', text: 'Ejendomme, filtre, fremvisninger, vurderinger og opfølgning.' }, estetica: { title: 'Skønhedsklinikker', text: 'Behandlinger, priser, tider, WhatsApp og bookingstyring.' }, clinica: { title: 'Klinikker / fagfolk', text: 'Services, åbningstider, FAQ og bookinger uden følsomme sundhedsdata.' } } },
   process: { eyebrow: 'Sådan arbejder vi', title: 'En klar proces til hurtig lancering', steps: ['Vi gennemgår din virksomhed', 'Vi definerer løsningen', 'Vi designer hjemmeside og automatiseringer', 'Vi tester og justerer', 'Vi publicerer og yder support'] },
   support: { eyebrow: 'Sikkerhed og support', title: 'Din hjemmeside bliver passet efter lancering', items: ['Sikker hosting', 'Backups', 'Månedlig vedligeholdelse', 'Basis beskyttelse mod bots/spam', 'Opdateringer', 'Teknisk support'] },
@@ -442,7 +442,7 @@ translations.it = {
   hero: { eyebrow: 'Studio digitale per piccole attività', title: 'Creiamo siti web che aiutano la tua attività a vendere, rispondere alle richieste e gestire prenotazioni', subtitle: 'Progettiamo siti web professionali per negozi, agenzie immobiliari, centri estetici e servizi. Integriamo WhatsApp, chatbot automatici e sistemi semplici per prenotazioni, ordini o richieste.', primaryButton: 'Vedi piani', secondaryButton: 'Vedi demo', mockupTitle: 'Sito + WhatsApp + gestione', mockupMessage: 'Ciao, vorrei verificare la disponibilità', mockupBot: 'Scegli un’opzione: prezzi, prenotazioni o parlare con una persona.', mockupPanel: 'Pannello: 12 nuove richieste' },
   problem: { eyebrow: 'Problema', title: 'La tua attività può perdere clienti se non risponde in tempo', text: 'Molte attività gestiscono ancora richieste, prenotazioni e ordini manualmente. Questo crea ritardi, messaggi ripetuti e opportunità perse.', close: 'Trasformiamo questi processi in un’esperienza digitale semplice, chiara e professionale.', items: ['Richieste ripetute su WhatsApp', 'Prenotazioni o ordini disordinati', 'Mancanza di presenza online professionale', 'Clienti che abbandonano per mancanza di risposta'] },
   services: { eyebrow: 'Servizi', title: 'Soluzioni pratiche per vendere, rispondere e organizzare', text: 'Non creiamo siti decorativi. Costruiamo uno strumento semplice per ricevere più richieste, ordinare messaggi e gestire ordini o prenotazioni senza perdere tempo.', items: [{ title: 'Sito professionale', text: 'Un sito chiaro e responsive per spiegare servizi, mostrare prodotti e portare clienti su WhatsApp.' }, { title: 'Chatbot automatico', text: 'Menu di opzioni per rispondere a domande frequenti, filtrare richieste e passare a una persona quando serve.' }, { title: 'Gestione semplice', text: 'Pannello per prenotazioni, ordini o richieste con stati, dati cliente e follow-up base.' }] },
-  plans: { eyebrow: 'Piani', title: 'Scegli il livello di soluzione che serve alla tua attività', note: 'Il prezzo finale dipende dal settore, dalle funzionalità e dalle integrazioni necessarie.', cta: 'Richiedi proposta', items: sharedPlans.it },
+  plans: { eyebrow: 'Piani', title: 'Scegli il livello di soluzione che serve alla tua attività', note: 'I piani sono organizzati per portata: base, completo e premium. Richiedi un preventivo per definire il prezzo finale in base a settore, funzionalità e integrazioni.', cta: 'Richiedi preventivo', items: sharedPlans.it },
   demos: { eyebrow: 'Demo per settore', title: 'Esplora le nostre demo per settore', text: 'Ogni demo mostra come la soluzione si adatta a problemi concreti: ordini, visite, prenotazioni o richieste.', button: 'Vedi demo', cards: { comercio: { title: 'Negozi', text: 'Catalogo, WhatsApp, chatbot per richieste e gestione ordini.' }, inmobiliaria: { title: 'Immobiliari', text: 'Immobili, filtri, visite, valutazioni e follow-up opportunità.' }, estetica: { title: 'Centri estetici', text: 'Trattamenti, prezzi, orari, WhatsApp e gestione prenotazioni.' }, clinica: { title: 'Cliniche / Professionisti', text: 'Servizi, orari, FAQ e prenotazioni senza dati medici sensibili.' } } },
   process: { eyebrow: 'Come lavoriamo', title: 'Un processo chiaro per pubblicare velocemente', steps: ['Analizziamo la tua attività', 'Definiamo la soluzione', 'Disegniamo sito e automazioni', 'Testiamo e regoliamo', 'Pubblichiamo e offriamo supporto'] },
   support: { eyebrow: 'Sicurezza e supporto', title: 'Il tuo sito resta curato dopo la pubblicazione', items: ['Hosting sicuro', 'Backup', 'Manutenzione mensile', 'Protezione base contro bot/spam', 'Aggiornamenti', 'Supporto tecnico'] },

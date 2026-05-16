@@ -1,7 +1,9 @@
-import { Bot, CalendarCheck, ChevronRight, MessageCircle, MonitorSmartphone } from 'lucide-react'
+import { Bot, ChevronRight, LayoutDashboard, MessageCircle, MonitorSmartphone } from 'lucide-react'
 import { backgrounds } from '../data/backgrounds'
 import { useLanguage } from '../context/LanguageContext'
 import { BackgroundSection } from './BackgroundSection'
+
+const detailIcons = [MonitorSmartphone, Bot, LayoutDashboard]
 
 export function Hero({ onNavigate }) {
   const { t } = useLanguage()
@@ -15,7 +17,7 @@ export function Hero({ onNavigate }) {
     <BackgroundSection
       id="inicio"
       backgroundImage={backgrounds.main}
-      overlay="linear-gradient(120deg, rgba(255,255,255,0.88), rgba(239,246,255,0.68) 48%, rgba(15,23,42,0.42))"
+      overlay="linear-gradient(115deg, rgba(15,23,42,0.84), rgba(23,37,84,0.68) 44%, rgba(15,118,110,0.34))"
       height="100vh"
       className="hero-section"
     >
@@ -36,34 +38,20 @@ export function Hero({ onNavigate }) {
           </div>
         </div>
 
-        <div className="hero-mockup" aria-label={t.hero.mockupTitle}>
-          <div className="mockup-window">
-            <div className="mockup-top">
-              <span />
-              <span />
-              <span />
-            </div>
-            <div className="mockup-body">
-              <div className="mockup-site">
-                <MonitorSmartphone size={28} />
-                <strong>{t.hero.mockupTitle}</strong>
-                <p>{t.hero.mockupPanel}</p>
+        <div className="hero-service-detail">
+          {t.services.items.map((item, index) => {
+            const Icon = detailIcons[index]
+            return (
+              <div key={item.title}>
+                <Icon size={22} />
+                <strong>{item.title}</strong>
+                <p>{item.text}</p>
               </div>
-              <div className="mockup-chat">
-                <div>
-                  <MessageCircle size={18} />
-                  <span>{t.hero.mockupMessage}</span>
-                </div>
-                <div>
-                  <Bot size={18} />
-                  <span>{t.hero.mockupBot}</span>
-                </div>
-              </div>
-              <div className="mockup-panel">
-                <CalendarCheck size={22} />
-                <span>{t.hero.mockupPanel}</span>
-              </div>
-            </div>
+            )
+          })}
+          <div className="hero-whatsapp-note">
+            <MessageCircle size={20} />
+            <span>{t.hero.mockupBot}</span>
           </div>
         </div>
       </div>
