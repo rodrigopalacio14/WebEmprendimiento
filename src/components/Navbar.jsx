@@ -1,128 +1,88 @@
-import { useEffect, useState } from 'react'
-import { Globe, Menu, X } from 'lucide-react'
+import { Menu, PanelLeft, Send } from 'lucide-react'
+import { demoRoutes } from '../data/siteContent'
+import { useLanguage } from '../context/LanguageContext'
 
-export default function Navbar({ lang, setLang, t }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
+export function Navbar({ onNavigate }) {
+  const { language, setLanguage, languages, t } = useLanguage()
 
-  const navItems = [
-    { id: 'profile', label: t.nav.profile },
-    { id: 'projects', label: t.nav.projects },
-    { id: 'experience', label: t.nav.experience },
-    { id: 'stack', label: t.nav.stack },
-    { id: 'contact', label: t.nav.contact }
-  ]
-
-  useEffect(() => {
-    const sections = ['home', ...navItems.map(item => item.id)]
-
-    const handleScroll = () => {
-      const current = sections.findLast(sectionId => {
-        const element = document.getElementById(sectionId)
-        if (!element) return false
-
-        const rect = element.getBoundingClientRect()
-        return rect.top <= 120
-      })
-
-      if (current) {
-        setActiveSection(current)
-      }
-    }
-
-    handleScroll()
-    window.addEventListener('scroll', handleScroll)
-
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lang])
-
-  const handleNavigate = () => {
-    setIsOpen(false)
+  const go = href => event => {
+    event.preventDefault()
+    onNavigate(href)
   }
 
-  const linkClass = id =>
-    `
-      rounded-full px-3 py-2 transition
-      ${
-        activeSection === id
-          ? 'bg-cyan-400/15 text-cyan-300'
-          : 'text-slate-300 hover:bg-white/5 hover:text-white'
-      }
-    `
+  const navItems = [
+    ['/#inicio', t.nav.home],
+    ['/#servicios', t.nav.services],
+    ['/#demos', t.nav.demos],
+    ['/#planes', t.nav.plans],
+    ['/#proceso', t.nav.process],
+    ['/#contacto', t.nav.contact]
+  ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur-xl">
-      <nav className="section-container flex h-16 items-center justify-between">
-        <a
-          href="#home"
-          onClick={handleNavigate}
-          className={`font-bold tracking-tight transition ${
-            activeSection === 'home' ? 'text-cyan-300' : 'text-white'
-          }`}
-        >
-          Rodrigo Palacio
+    <header className="main-header">
+      <nav className="section-container header-nav">
+        <a href="/" className="brand" onClick={go('/')}>
+          <span className="brand-mark">
+            <PanelLeft size={20} />
+          </span>
+          WebFlex Studio
         </a>
 
-        <div className="hidden items-center gap-2 text-sm md:flex">
-          {navItems.map(item => (
-            <a key={item.id} href={`#${item.id}`} className={linkClass(item.id)}>
-              {item.label}
+        <div className="main-links">
+          {navItems.map(([href, label]) => (
+            <a href={href} key={href} onClick={go(href)}>
+              {label}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
-          <button
-              onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-              className="
-                flex items-center gap-2
-                rounded-full
-                bg-gradient-to-r from-cyan-400 to-blue-500
-                px-4 py-2
-                text-sm font-semibold
-                text-white
-                shadow-lg shadow-cyan-500/25
-                transition-all duration-300
-                hover:-translate-y-1
-                hover:shadow-cyan-400/40
-              "
-            >
-              <Globe size={16} />
-              {lang === 'es' ? 'EN' : 'ES'}
-            </button>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-accent hover:text-accent md:hidden"
-          >
-            {isOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
-        </div>
-      </nav>
-
-      {isOpen && (
-        <div className="border-t border-white/10 bg-slate-950/95 px-4 py-4 backdrop-blur-xl md:hidden">
-          <div className="mx-auto flex max-w-md flex-col gap-2">
-            {navItems.map(item => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={handleNavigate}
-                className={`
-                  rounded-2xl px-4 py-3 text-sm font-medium transition
-                  ${
-                    activeSection === item.id
-                      ? 'bg-cyan-400/15 text-cyan-300'
-                      : 'text-slate-300 hover:bg-white/5 hover:text-white'
-                  }
-                `}
+        <div className="language-switcher" aria-label="Language selector">
+          <div className="language-buttons">
+            {languages.map(item => (
+              <button
+                className={language === item.code ? 'is-active' : ''}
+                key={item.code}
+                onClick={() => setLanguage(item.code)}
+                type="button"
               >
+                <span>{item.flag}</span>
                 {item.label}
+              </button>
+            ))}
+          </div>
+          <select value={language} onChange={event => setLanguage(event.target.value)}>
+            {languages.map(item => (
+              <option key={item.code} value={item.code}>
+                {item.flag} {item.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <a className="header-action" href="/#contacto" onClick={go('/#contacto')}>
+          {t.nav.proposal}
+          <Send size={16} />
+        </a>
+
+        <details className="mobile-menu">
+          <summary>
+            <Menu size={22} />
+          </summary>
+          <div>
+            {navItems.map(([href, label]) => (
+              <a href={href} key={href} onClick={go(href)}>
+                {label}
+              </a>
+            ))}
+            {demoRoutes.map(route => (
+              <a href={route.path} key={route.key} onClick={go(route.path)}>
+                {t.demos.cards[route.key].title}
               </a>
             ))}
           </div>
-        </div>
-      )}
+        </details>
+      </nav>
     </header>
   )
 }

@@ -1,108 +1,95 @@
-import { ArrowRight, Check, Send, UsersRound } from 'lucide-react'
+import { ArrowLeft, Bot, Check, LayoutDashboard, MessageCircle, Send } from 'lucide-react'
+import { Footer } from '../components/Footer'
+import { PlanComparison } from '../components/PlanComparison'
+import { useLanguage } from '../context/LanguageContext'
 
-export function DemoPage({ demo }) {
-  const Icon = demo.icon
+export function DemoPage({ route, onNavigate }) {
+  const { t } = useLanguage()
+  const details = t.demoDetails[route.key]
+  const Icon = route.icon
+
+  const go = href => event => {
+    event.preventDefault()
+    onNavigate(href)
+  }
 
   return (
-    <section
-      className="demo-section demo-page"
-      style={{ '--demo-color': demo.theme, '--demo-accent': demo.accent }}
-    >
-      <div className="section-container">
-        <nav className="demo-nav" aria-label={`Navegacion demo ${demo.label}`}>
-          <a href={demo.path} className="demo-brand">
-            <Icon size={19} />
-            Demo {demo.label}
-          </a>
-          <div>
-            {demo.nav.map(([href, label]) => (
-              <a key={href} href={`${demo.path}#${href}`}>
-                {label}
+    <>
+      <section className="demo-page" style={{ '--demo-color': route.color, '--demo-accent': route.accent }}>
+        <div className="section-container">
+          <nav className="demo-nav">
+            <a href="/" onClick={go('/')} className="demo-brand">
+              <ArrowLeft size={18} />
+              {t.nav.backHome}
+            </a>
+            <div>
+              <a href={`${route.path}#versiones`} onClick={go(`${route.path}#versiones`)}>
+                {t.demoPage.versionsTitle}
               </a>
-            ))}
-          </div>
-        </nav>
+              <a href={`${route.path}#contacto`} onClick={go(`${route.path}#contacto`)}>
+                {t.nav.contact}
+              </a>
+            </div>
+          </nav>
 
-        <div className="demo-hero">
-          <div>
-            <p className="eyebrow">{demo.code} {demo.label}</p>
-            <h2>{demo.hero}</h2>
-            <p>{demo.intro}</p>
-            <div className="metric-row">
-              {demo.metrics.map(metric => (
-                <span key={metric}>
-                  <Check size={16} />
-                  {metric}
-                </span>
-              ))}
+          <div className="demo-hero">
+            <div>
+              <p className="eyebrow">{details.title}</p>
+              <h1>{details.hero}</h1>
+              <p>{details.problem}</p>
+              <a className="demo-whatsapp" href="https://wa.me/5493517868252" target="_blank" rel="noreferrer">
+                {t.demoPage.contactButton}
+                <MessageCircle size={18} />
+              </a>
+            </div>
+            <div className="demo-visual">
+              <img src={route.image} alt={details.title} />
+              <div>
+                <Icon size={22} />
+                <strong>{t.demoPage.mockupLabel}</strong>
+              </div>
             </div>
           </div>
-          <img src={demo.image} alt={`Portada de la demo ${demo.label}`} />
-        </div>
 
-        <div id={demo.nav[0][0]} className="demo-products">
-          <div className="demo-heading">
-            <h3>{demo.productsTitle}</h3>
-            <a href={`${demo.path}#${demo.nav[2][0]}`}>
-              {demo.cta}
-              <ArrowRight size={16} />
+          <div className="demo-problem">
+            <p className="eyebrow">{t.demoPage.problemLabel}</p>
+            <h2>{details.problem}</h2>
+          </div>
+
+          <div className="demo-mockup">
+            {details.mockup.map((item, index) => {
+              const icons = [MessageCircle, Bot, LayoutDashboard]
+              const MockIcon = icons[index]
+              return (
+                <article key={item}>
+                  <MockIcon size={22} />
+                  <span>{item}</span>
+                </article>
+              )
+            })}
+          </div>
+
+          <section id="versiones" className="demo-versions">
+            <div className="section-intro">
+              <p className="eyebrow">{t.demoPage.versionsTitle}</p>
+              <h2>{details.hero}</h2>
+            </div>
+            <PlanComparison versions={details.versions} />
+          </section>
+
+          <section id="contacto" className="demo-contact-panel">
+            <div>
+              <h2>{t.cta.title}</h2>
+              <p>{t.cta.text}</p>
+            </div>
+            <a href="https://wa.me/5493517868252" target="_blank" rel="noreferrer">
+              {t.cta.button}
+              <Send size={18} />
             </a>
-          </div>
-          <div className="product-grid">
-            {demo.products.map(product => (
-              <article className="market-card" key={product.title}>
-                <img src={product.image} alt={product.title} />
-                <div>
-                  <strong>{product.price}</strong>
-                  <h4>{product.title}</h4>
-                  <p>{product.text}</p>
-                  <div>
-                    {product.meta.map(item => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          </section>
         </div>
-
-        <div id={demo.nav[1][0]} className="included-panel">
-          <div>
-            <p className="eyebrow">Incluye para este rubro</p>
-            <h3>Componentes pensados para operar y vender</h3>
-          </div>
-          <div className="included-list">
-            {demo.features.map(feature => (
-              <p key={feature}>
-                <Check size={18} />
-                {feature}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        <div id={demo.nav[2][0]} className="demo-contact">
-          <div>
-            <h3>Consulta lista para convertir</h3>
-            <p>
-              El boton puede abrir WhatsApp con mensaje precargado, formulario interno o
-              una agenda de turnos segun el paquete elegido.
-            </p>
-          </div>
-          <div className="contact-mock">
-            <span>
-              <UsersRound size={17} />
-              Nuevo interesado
-            </span>
-            <strong>{demo.cta}</strong>
-            <button type="button">
-              Enviar consulta
-              <Send size={16} />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </>
   )
 }

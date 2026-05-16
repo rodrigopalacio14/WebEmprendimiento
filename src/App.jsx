@@ -1,23 +1,25 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Header } from './components/Layout'
-import { demos } from './data/siteContent'
+import { Navbar } from './components/Navbar'
+import { demoRouteMap } from './data/siteContent'
 import { DemoPage } from './pages/DemoPage'
 import { HomePage } from './pages/HomePage'
 
-function getRoute() {
-  const path = window.location.pathname.replace(/\/$/, '') || '/'
-  const demoKey = Object.keys(demos).find(key => demos[key].path === path)
+function normalizePath(pathname) {
+  return pathname.replace(/\/$/, '') || '/'
+}
 
+function getRoute() {
+  const path = normalizePath(window.location.pathname)
   return {
-    demoKey,
     path,
-    hash: window.location.hash
+    hash: window.location.hash,
+    demoRoute: demoRouteMap[path]
   }
 }
 
 function App() {
   const [route, setRoute] = useState(getRoute)
-  const demo = useMemo(() => demos[route.demoKey], [route.demoKey])
+  const demoRoute = useMemo(() => route.demoRoute, [route])
 
   const navigate = href => {
     const url = new URL(href, window.location.origin)
@@ -38,18 +40,17 @@ function App() {
         window.scrollTo({ top: 0 })
         return
       }
-
       const target = document.getElementById(id)
       if (!target) return
-      const top = target.getBoundingClientRect().top + window.pageYOffset - 86
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 92
       window.scrollTo({ top, behavior: 'smooth' })
     })
   }, [route])
 
   return (
     <main className="site-shell">
-      <Header onNavigate={navigate} />
-      {demo ? <DemoPage demo={demo} /> : <HomePage onNavigate={navigate} />}
+      <Navbar onNavigate={navigate} />
+      {demoRoute ? <DemoPage route={demoRoute} onNavigate={navigate} /> : <HomePage onNavigate={navigate} />}
     </main>
   )
 }
