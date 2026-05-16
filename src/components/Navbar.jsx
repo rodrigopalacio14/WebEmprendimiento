@@ -23,7 +23,9 @@ export function Navbar({ onNavigate }) {
     <header className="main-header">
       <nav className="section-container header-nav">
         <a href="/" className="brand" onClick={go('/')}>
-          <span className="brand-mark" aria-hidden="true">NT</span>
+          <span className="brand-mark">
+            <img src="/assets/nispero-tech-logo.png" alt="" />
+          </span>
           Nispero Tech
         </a>
 
