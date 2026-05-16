@@ -18,9 +18,15 @@ export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(getInitialLanguage)
 
   useEffect(() => {
+    const meta = translations[language].meta
     window.localStorage.setItem('nispero-language', language)
     document.documentElement.lang = language
-    document.title = translations[language].meta.title
+    document.title = meta.title
+    setMetaContent('description', meta.description)
+    setMetaContent('twitter:title', meta.title)
+    setMetaContent('twitter:description', meta.description)
+    setPropertyContent('og:title', meta.title)
+    setPropertyContent('og:description', meta.description)
   }, [language])
 
   const value = useMemo(
@@ -34,6 +40,16 @@ export function LanguageProvider({ children }) {
   )
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
+}
+
+function setMetaContent(name, content) {
+  const element = document.querySelector(`meta[name="${name}"]`)
+  if (element) element.setAttribute('content', content)
+}
+
+function setPropertyContent(property, content) {
+  const element = document.querySelector(`meta[property="${property}"]`)
+  if (element) element.setAttribute('content', content)
 }
 
 export function useLanguage() {
