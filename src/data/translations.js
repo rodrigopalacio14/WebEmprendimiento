@@ -10,7 +10,7 @@ const sharedPlans = {
     {
       name: 'Plan Básico',
       badge: 'Web Profesional',
-      price: 'Desde 500 EUR',
+      price: 'Desde 200 EUR',
       description: 'Para negocios que necesitan presencia online clara, moderna y confiable.',
       includes: [
         'Sitio web personalizado',
@@ -25,7 +25,7 @@ const sharedPlans = {
     {
       name: 'Plan Completo',
       badge: 'Web + Chatbot',
-      price: 'Desde 900 EUR',
+      price: 'Desde 500 EUR',
       description: 'Incluye todo lo del Plan Básico y suma atención automática para responder consultas repetidas.',
       includes: [
         'Todo lo del Plan Base',
@@ -40,7 +40,7 @@ const sharedPlans = {
     {
       name: 'Plan Premium',
       badge: 'Web + Gestión',
-      price: 'Desde 1.800 EUR',
+      price: 'Desde 1.000 EUR',
       description: 'Incluye todo lo del Plan Completo y suma gestión de reservas, pedidos o consultas desde un panel simple.',
       includes: [
         'Todo lo del Plan Intermedio',
@@ -215,7 +215,7 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Estudio digital para pequeños negocios',
-      title: 'Creamos sitios web que ayudan a tu negocio a vender, responder consultas y gestionar reservas',
+      title: 'Sitios web modernos. Negocios más inteligentes.',
       subtitle:
         'Diseñamos sitios web profesionales para comercios, inmobiliarias, estéticas y servicios. Integramos WhatsApp, chatbots automáticos y sistemas simples de turnos, pedidos o consultas.',
       primaryButton: 'Ver planes',
@@ -359,7 +359,7 @@ translations.en = {
   nav: { home: 'Home', services: 'Services', demos: 'Demos', plans: 'Plans', process: 'How we work', contact: 'Contact', proposal: 'Request proposal', backHome: 'Back home' },
   hero: {
     eyebrow: 'Digital studio for small businesses',
-    title: 'We create websites that help your business sell, answer inquiries and manage bookings',
+    title: 'Modern websites. Smarter business.',
     subtitle: 'We design professional websites for shops, real estate businesses, beauty centers and service providers. We integrate WhatsApp, automated chatbots and simple booking, order or inquiry management systems.',
     primaryButton: 'View plans',
     secondaryButton: 'View demos',
@@ -421,7 +421,7 @@ translations.da = {
   nav: { home: 'Forside', services: 'Services', demos: 'Demoer', plans: 'Pakker', process: 'Sådan arbejder vi', contact: 'Kontakt', proposal: 'Anmod om tilbud', backHome: 'Til forsiden' },
   hero: {
     eyebrow: 'Digitalt studie for små virksomheder',
-    title: 'Vi skaber hjemmesider, der hjælper din virksomhed med at sælge, besvare henvendelser og håndtere bookinger',
+    title: 'Moderne hjemmesider. Smartere forretning.',
     subtitle: 'Vi designer professionelle hjemmesider til butikker, ejendomsmæglere, skønhedsklinikker og servicevirksomheder. Vi integrerer WhatsApp, automatiske chatbots og enkle systemer til bookinger, ordrer eller henvendelser.',
     primaryButton: 'Se pakker',
     secondaryButton: 'Se demoer',
@@ -455,7 +455,7 @@ translations.it = {
       'Nispero Tech crea siti web professionali per piccole attività con WhatsApp integrato, chatbot automatici e sistemi semplici per prenotazioni, ordini o richieste.'
   },
   nav: { home: 'Home', services: 'Servizi', demos: 'Demo', plans: 'Piani', process: 'Come lavoriamo', contact: 'Contatto', proposal: 'Richiedi proposta', backHome: 'Torna alla home' },
-  hero: { eyebrow: 'Studio digitale per piccole attività', title: 'Creiamo siti web che aiutano la tua attività a vendere, rispondere alle richieste e gestire prenotazioni', subtitle: 'Progettiamo siti web professionali per negozi, agenzie immobiliari, centri estetici e servizi. Integriamo WhatsApp, chatbot automatici e sistemi semplici per prenotazioni, ordini o richieste.', primaryButton: 'Vedi piani', secondaryButton: 'Vedi demo', mockupTitle: 'Sito + WhatsApp + gestione', mockupMessage: 'Ciao, vorrei verificare la disponibilità', mockupBot: 'Scegli un’opzione: prezzi, prenotazioni o parlare con una persona.', mockupPanel: 'Pannello: 12 nuove richieste' },
+  hero: { eyebrow: 'Studio digitale per piccole attività', title: 'Siti web moderni. Business più intelligente.', subtitle: 'Progettiamo siti web professionali per negozi, agenzie immobiliari, centri estetici e servizi. Integriamo WhatsApp, chatbot automatici e sistemi semplici per prenotazioni, ordini o richieste.', primaryButton: 'Vedi piani', secondaryButton: 'Vedi demo', mockupTitle: 'Sito + WhatsApp + gestione', mockupMessage: 'Ciao, vorrei verificare la disponibilità', mockupBot: 'Scegli un’opzione: prezzi, prenotazioni o parlare con una persona.', mockupPanel: 'Pannello: 12 nuove richieste' },
   problem: { eyebrow: 'Problema', title: 'La tua attività può perdere clienti se non risponde in tempo', text: 'Molte attività gestiscono ancora richieste, prenotazioni e ordini manualmente. Questo crea ritardi, messaggi ripetuti e opportunità perse.', close: 'Trasformiamo questi processi in un’esperienza digitale semplice, chiara e professionale.', items: ['Richieste ripetute su WhatsApp', 'Prenotazioni o ordini disordinati', 'Mancanza di presenza online professionale', 'Clienti che abbandonano per mancanza di risposta'] },
   services: { eyebrow: 'Servizi', title: 'Soluzioni pratiche per vendere, rispondere e organizzare', text: 'Non creiamo siti decorativi. Costruiamo uno strumento semplice per ricevere più richieste, ordinare messaggi e gestire ordini o prenotazioni senza perdere tempo.', items: [{ title: 'Sito professionale', text: 'Un sito chiaro e responsive per spiegare servizi, mostrare prodotti e portare clienti su WhatsApp.' }, { title: 'Chatbot automatico', text: 'Menu di opzioni per rispondere a domande frequenti, filtrare richieste e passare a una persona quando serve.' }, { title: 'Gestione semplice', text: 'Pannello per prenotazioni, ordini o richieste con stati, dati cliente e follow-up base.' }] },
   plans: { eyebrow: 'Piani', title: 'Scegli il livello di soluzione che serve alla tua attività', note: 'I piani sono organizzati per portata: base, completo e premium. Richiedi un preventivo per definire il prezzo finale in base a settore, funzionalità e integrazioni.', cta: 'Richiedi preventivo', items: sharedPlans.it },
