@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Chatbot } from './components/Chatbot'
+//import { Chatbot } from './components/Chatbot'
 import { Navbar } from './components/Navbar'
 import { demoRouteMap } from './data/siteContent'
 import { DemoPage } from './pages/DemoPage'
@@ -52,7 +52,7 @@ function App() {
     <main className="site-shell">
       <Navbar onNavigate={navigate} />
       {demoRoute ? <DemoPage route={demoRoute} onNavigate={navigate} /> : <HomePage onNavigate={navigate} />}
-      <Chatbot onNavigate={navigate} />
+      {/* <Chatbot onNavigate={navigate} /> */}
     </main>
   )
 }
